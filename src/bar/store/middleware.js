@@ -1,6 +1,9 @@
-import {axios} from 'axios';
-import {FETCH_SKILL} from '../aciton/action_type';
+import { axios } from 'axios';
+import { set_data_skill } from '../action/action_creater';
+import { FETCH_SKILL } from '../action/action_type';
 
+
+console.log("load middware");
 const logMiddleware = ({ getState, dispatch }) => (next) => (action) => {
   console.log(`Action: ${ action.type }`);
 
@@ -17,9 +20,12 @@ function fetchData(url, callback) {
 
 const apiMiddleware = ({ dispatch }) => next => action => {
   if (action.type === FETCH_SKILL) {
-    fetchData(URL, ({ data }) => dispatch(setRecipes(data)));
+    fetchData(URL, ({ data }) => dispatch(set_data_skill(data)));
   }
 
   next(action);
 };
+
+
+export { logMiddleware, apiMiddleware };
 

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { reducer } from './skill_reducer';
+import { skill_reducer } from './skill_reducer';
 
 
-const rootReducer = combineReducers({
-  reducer,
+console.log("load rootreducer");
+export const rootReducer = combineReducers({
+  skill_reducer,
 
 })
+

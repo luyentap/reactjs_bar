@@ -1,23 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import { GraphBar } from './bar/component/bar';
-import { } from './bar/store/store_skill';
+import { root_store as store } from './bar/store';
 import './style.css';
+render(
+  <Provider store={store}>
+    <GraphBar ></GraphBar>
+  </Provider>,
+  document.getElementById("root")
+);
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
-  }
+ //#endregion
+// class App extends Component {
+//   // constructor() {
+//   //   super();
+//   // }
 
-  render() {
-    return (
-      <GraphBar>
-      </GraphBar>
-    );
-  }
-}
+//   render() {
+//     return (
+//     //   <GraphBar>
+//     //   </GraphBar>
+//     // );
+//     <Provider store={store}>
+//         <div>
+//             <GraphBar/>
+//         </div>
+//     </Provider>
+// );
+//   }
+// }
 
-render(<App />, document.getElementById('root'));
+// render(<App />, document.getElementById('root'));
